@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling</title>
+    
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            scroll-behavior: smooth;
+            font-family: "Libre Baskerville", serif;
+        }
+
+        .parallax {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .text-section {
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            text-align: center;
+            font-family: "Libre Baskerville", serif;
+            font-weight: 400;
+        }
+
+        .image1 { background-image: url('image1.jpg'); }
+        .image2 { background-image: url('image2.jpg'); }
+        .image3 { background-image: url('image3.jpg'); }
+        .image4 { background-image: url('image4.jpg'); }
+        .image5 { background-image: url('image5.jpg'); }
+        .image6 { background-image: url('image6.jpg'); }
+        .image7 { background-image: url('image7.jpg'); }
+        .image8 { background-image: url('image8.jpg'); }
+        .image9 { background-image: url('image9.jpg'); }
+
+        .last-slide {
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .last-slide h1 {
+            font-size: 2em;
+            font-weight: 700;
+        }
+
+        .last-slide p {
+            font-size: 1em;
+            font-weight: 400;
+        }
+
+        .last-slide .content {
+            text-align: center;
+        }
+
+        button {
+            font-family: "Libre Baskerville", serif;
+            font-weight: 700;
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Parallax Sections -->
+    <div class="parallax image9"></div>
+    <div class="text-section">Do you have an object that reminds you of your culture, traditions, or homeland?</div>
+    <div class="parallax image5"></div>
+    <div class="text-section">Can you look for it?</div> 
+    <div class="parallax image8"></div>
+    <div class="text-section">It could be a gift from a loved one, a treasured item or...</div>
+    <div class="parallax image7"></div>
+
+    <!-- Last Slide Section with Buttons -->
+    <div class="last-slide">
+        <div class="content">
+            <h1>Do you have the object?</h1>
+            <a href="e.html">
+                <button>Yes, I have selected an object</button>
+            </a>
+            <a href="f.html">
+                <button>Not yet</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

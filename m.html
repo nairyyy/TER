@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scrollable Sections with Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('image8.jpg'); /* Change to your image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: rgb(17, 15, 15);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            overflow-y: auto;
+            text-align: center;
+        }
+        .section {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 1em; /* Makes the title bigger */
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            font-size: 0.5em; /* Makes the instructions smaller */
+            line-height: 1.6; /* Space between sentences */
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Last Slide Styling */
+        .last-slide {
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            background-image: url('image8.jpg'); /* Same background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically and horizontally */
+            text-align: center;
+            position: relative; /* Ensure positioning for the button */
+            font-size: 2em;
+        }
+
+         
+        .last-slide h1 {
+            
+            font-size: 1em; /* Makes the title bigger */
+            margin-bottom: 20px;
+        }
+        .last-slide h2{
+            
+            line-height: 1.6; /* Space between sentences */
+            margin-bottom: 20px;
+            
+        }
+        .last-slide .content {
+            text-align: center;
+        }
+
+        /* Button Styling */
+        .back-button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            padding: 10px 15px;
+            font-size: 16px;
+            border: 1px solid black;
+            background-color: #f0f0f0;
+            color: rgb(24, 22, 22);
+            cursor: pointer;
+        }
+
+        .back-button:hover {
+            background-color: #87888a;
+        }
+
+        /* Adjust for small screens */
+        @media (max-width: 600px) {
+            .back-button {
+                font-size: 14px;
+                padding: 8px 12px;
+                bottom: 10px;
+                left: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>How to make my animation?</h1>
+        <h2>
+            Place your object in your desired place. <br>
+            Tap the camera icon. <br>
+            Start taking pictures while moving your object a tiny bit after each photo. <br>
+            Once you are done, click on the play button. <br>
+            The object seems like it moves by itself!
+        </h2>
+    </div>
+    <div class="section">
+        <h1>How to adjust my phone for stop-motion making?</h1>
+        <h2>
+            You need to make your phone steady. <br>
+            You can use heavy objects as camera holders.  <br>
+            You can use a (shoe) box or a cup next to you or a bottle. <br>
+            Or get creative! <br>
+        </h2>
+    </div>
+    <!-- Last Slide Section with Back Button -->
+    <div class="last-slide">
+        <div class="content">
+            <h1>How can I change the speed of my animation?</h1>
+            <h2>
+                The more pictures you have, the slower and smoother your animation will be.
+            </h2>
+            <!-- Back button (only visible on last slide) -->
+            <button class="back-button" onclick="window.history.back();">Back</button>
+        </div>
+    </div>
+</body>
+</html>

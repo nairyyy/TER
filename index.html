@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <title>Parallax Scrolling</title>
+    <style>
+        .libre-baskerville-regular {
+            font-family: "Libre Baskerville", serif;
+            font-weight: 400;
+              font-style: normal;
+        }
+
+        .libre-baskerville-bold {
+        font-family: "Libre Baskerville", serif;
+        font-weight: 700;
+        font-style: normal;
+        }
+
+        .libre-baskerville-regular-italic {
+        font-family: "Libre Baskerville", serif;
+        font-weight: 400;
+        font-style: italic;
+        }
+
+ 
+        body, html {
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: "Libre Baskerville", serif;
+            font-weight:400;
+        }
+
+        .parallax {
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Needed for absolute positioning */
+        }
+
+        .text-section {
+            height: 10vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            text-align: center;
+            position: relative;
+        }
+
+        /* PNG images */
+        .floating-image {
+            position: absolute;
+            width: 150px; /* Adjust size */
+            animation: float 5s infinite alternate ease-in-out;
+            z-index: 2; /* Ensures it appears above the background */
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-20px); }
+        }
+
+        /* Background images */
+        .image1 { background-image: url('image1.jpg'); }
+        .image2 { background-image: url('image2.jpg'); }
+        .image3 { background-image: url('image3.jpg'); }
+        .image4 { background-image: url('image4.jpg'); }
+        .image5 { background-image: url('image5.jpg'); }
+        .image6 { background-image: url('image6.jpg'); }
+        .image7 { background-image: url('image7.jpg'); }
+        .image8 { background-image: url('image8.jpg'); }
+        .image9 { background-image: url('image9.jpg'); }
+        .image10 { background-image: url('image10.jpg'); }
+        .image11 { background-image: url('image11.jpg'); }
+        .image12 { background-image: url('image12.jpg'); }
+        .image13 { background-image: url('image13.jpg'); }
+
+        /* Different PNG positions */
+        .image1 .floating-image { top: 20%; left: 10%; }
+        .image2 .floating-image { bottom: 30%; right: 20%; }
+        .image3 .floating-image { top: 50%; left: 40%; }
+        .image4 .floating-image { bottom: 10%; right: 30%; }
+        .image5 .floating-image { top: 25%; left: 50%; }
+        .image6 .floating-image { bottom: 5%; right: 15%; }
+        .image7 .floating-image { top: 20%; left: 10%;}
+        .image8 .floating-image { bottom: 20%; right: 10%; }
+        .image9 .floating-image { bottom: 30%; right: 20%; }
+        .image10 .floating-image { top: 20%; left: 10%;}
+        .image11 .floating-image { top: 25%; left: 50%; }
+        .image12 .floating-image { top: 25%; left: 50%; }
+
+        /* Last slide styling */
+        .last-slide {
+            height: 100vh;
+            background-color: #ebebeb;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .last-slide .content h1 {
+            font-size: 1.2em;
+        }
+
+        .last-slide .content a button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="parallax image1">
+        <img src="png1.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Genocide, conflict, and crisis continue to force people from their homes.</div>
+
+    <div class="parallax image2">
+        <img src="png2.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Leaving them uncertain about their future.</div>
+
+    <div class="parallax image3">
+        <img src="png3.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Left behind, centuries-old monuments and artifacts face the threat of destruction and erasure.</div>
+
+    <div class="parallax image4">
+        <img src="png4.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">On November 2020, Azerbaijan attacked the historical Armenian lands of the Republic of Artsakh and took control of the region afterward.</div>
+
+    <div class="parallax image5">
+        <img src="png5.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Many had to leave their homes behind.</div>
+
+    <div class="parallax image6">
+        <img src="png6.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Today, many museums in Artsakh are at risk of cultural cleansing.</div>
+
+    <div class="parallax image7">
+        <img src="png7.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Over the centuries, Armenians have faced the shadow of erasure. Between 1915 and 1922, an estimated 1,500,000 Armenians perished in a genocide.</div>
+
+    <div class="parallax image8">
+        <img src="png8.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">The Armenian diaspora has spread across the world.</div>
+
+    <div class="parallax image9">
+        <img src="png9.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Leaving their homes behind, many carried their cherished objects with them.</div>
+
+    <div class="parallax image10">
+        <img src="png10.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Pictures, jewelry, books, and home decorations.</div>
+
+    <div class="parallax image11">
+        <img src="png11.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">What stories do such objects hold?</div>
+
+    <div class="parallax image12">
+        <img src="png12.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">This is their story.</div>
+
+    <div class="parallax image13">
+        <img src="png13.png" class="floating-image" alt="Floating PNG">
+    </div>
+    <div class="text-section">Made by people like you.</div>
+
+    <div class="last-slide">
+        <div class="content">
+            <h1>What perspective are you participating from?</h1>
+            <a href="a.html"><button>Diaspora of any culture or immigrant experience</button></a>
+            <a href="b.html"><button>Armenian diaspora</button></a>
+            <a href="d.html"><button>Have not personally experienced displacement</button></a>
+            <a href="c.html"><button>Other</button></a>
+        </div>
+    </div>
+
+</body>
+</html>

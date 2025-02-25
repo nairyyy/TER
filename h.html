@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax Scrolling</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Ensure body and html take up full height */
+            scroll-behavior: smooth; /* Smooth scrolling */
+            font-family: Arial, sans-serif; /* Font for readability */
+        }
+
+        .parallax {
+            height: 100vh; /* Full viewport height */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Ensures text is centered vertically and horizontally */
+        }
+
+        .text-section {
+            height: 10vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1em;
+            text-align: center;  /* Centers the text inside the section */
+        }
+
+        .image1 { background-image: url('image1.jpg'); }
+        .image2 { background-image: url('image2.jpg'); }
+        .image3 { background-image: url('image3.jpg'); }
+        .image4 { background-image: url('image4.jpg'); }
+        .image5 { background-image: url('image5.jpg'); }
+        .image6 { background-image: url('image6.jpg'); }
+        .image7 { background-image: url('image7.jpg'); }
+        .image8 { background-image: url('image8.jpg'); }
+        .image9 { background-image: url('image9.jpg'); }
+
+        .last-slide {
+            height: 100vh; /* Full viewport height */
+            background-color: #f0f0f0; /* Optional background color */
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center; /* Center content vertically and horizontally */
+            text-align: center;
+        }
+
+        .last-slide h1 {
+            font-size: 2em;
+        }
+
+        .last-slide p {
+            font-size: 1em;
+        }
+
+        .last-slide .content {
+            text-align: center;
+        }
+
+        button {
+            font-size: 1em;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Parallax Sections -->
+    <div class="parallax image9"></div>
+    <div class="text-section">If you had to choose one meaningful object to take with you to a new place, what would it be?</div>
+    <div class="parallax image5"></div>
+    <div class="text-section">Can you look for it?</div> 
+    <div class="parallax image8"></div>
+    <div class="text-section">It could be a gift from a loved one, a treasured item or...</div>
+    <div class="parallax image7"></div>
+
+    <!-- Last Slide Section with Buttons -->
+    <div class="last-slide">
+        <div class="content">
+            <h1>Do you have the object?</h1>
+            <a href="e.html">
+                <button>Yes I have selected an object</button>
+            </a>
+            <a href="f.html">
+                <button>Not yet</button>
+            </a>
+           
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stop-Motion Gallery with Parallax</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #fff;
+      height: 100%; 
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      position: absolute;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 5vw;
+      color: white;
+      text-align: center;
+      z-index: 10;
+    }
+    .parallax {
+      height: 100vh; /* Full screen per section */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .frame-container {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    button {
+      position: absolute;
+      bottom: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #0a0302;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 10;
+    }
+    button:hover {
+      background-color: #dd4b39;
+    }
+    
+  </style>
+</head>
+<body>
+  <h1>Whose memories will remain?</h1>
+
+  <!-- The parallax sections for animations -->
+  <div id="parallaxContainer">
+    <!-- Each section here will represent an animation -->
+  </div>
+
+  <script>
+    // Retrieve saved animations from localStorage
+    const animations = JSON.parse(localStorage.getItem('animations')) || [];
+
+    // Check if animations exist in localStorage
+    if (animations.length === 0) {
+      alert('No animations found!');
+      window.location.href = 'index.html';
+    }
+
+    const parallaxContainer = document.getElementById('parallaxContainer');
+    
+    // Create parallax sections for each animation
+    animations.forEach((animation, index) => {
+      const parallaxSection = document.createElement('div');
+      parallaxSection.classList.add('parallax');
+      
+      // Create a canvas inside each parallax section to display frames
+      const frameContainer = document.createElement('div');
+      frameContainer.classList.add('frame-container');
+      parallaxSection.appendChild(frameContainer);
+
+      const canvas = document.createElement('canvas');
+      frameContainer.appendChild(canvas);
+
+      parallaxContainer.appendChild(parallaxSection);
+
+      // Set canvas context for animation
+      const context = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      let frameIndex = 0;
+      const speed = 100; // Frame display speed (milliseconds)
+
+      // Function to show the next frame in the animation
+      function showNextFrame() {
+        const img = new Image();
+        img.src = animation[frameIndex];
+        img.onload = () => {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.drawImage(img, 0, 0, canvas.width, canvas.height);
+        };
+        frameIndex = (frameIndex + 1) % animation.length; // Loop through frames
+      }
+
+      // Start the animation loop
+      setInterval(showNextFrame, speed);
+
+      // Optional: Use IntersectionObserver to trigger the animation once the section is in view
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Trigger animation play only when the section is in view
+            showNextFrame();
+          }
+        });
+      }, { threshold: 0.5 });
+
+      observer.observe(parallaxSection);
+    });
+
+  </script>
+</body>
+</html>

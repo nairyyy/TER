@@ -73,22 +73,18 @@
 </head>
 <body>
   <h1>Whose memories will remain?</h1>
-
   <!-- The parallax sections for animations -->
   <div id="parallaxContainer">
     <!-- Each section here will represent an animation -->
   </div>
-
   <script>
     // Retrieve saved animations from localStorage
     const animations = JSON.parse(localStorage.getItem('animations')) || [];
-
     // Check if animations exist in localStorage
     if (animations.length === 0) {
       alert('No animations found!');
       window.location.href = 'index.html';
     }
-
     const parallaxContainer = document.getElementById('parallaxContainer');
     
     // Create parallax sections for each animation
@@ -100,20 +96,15 @@
       const frameContainer = document.createElement('div');
       frameContainer.classList.add('frame-container');
       parallaxSection.appendChild(frameContainer);
-
       const canvas = document.createElement('canvas');
       frameContainer.appendChild(canvas);
-
       parallaxContainer.appendChild(parallaxSection);
-
       // Set canvas context for animation
       const context = canvas.getContext('2d');
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-
       let frameIndex = 0;
       const speed = 100; // Frame display speed (milliseconds)
-
       // Function to show the next frame in the animation
       function showNextFrame() {
         const img = new Image();
@@ -124,10 +115,8 @@
         };
         frameIndex = (frameIndex + 1) % animation.length; // Loop through frames
       }
-
       // Start the animation loop
       setInterval(showNextFrame, speed);
-
       // Optional: Use IntersectionObserver to trigger the animation once the section is in view
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -137,10 +126,8 @@
           }
         });
       }, { threshold: 0.5 });
-
       observer.observe(parallaxSection);
     });
-
   </script>
 </body>
 </html>

@@ -57,7 +57,6 @@
       border: 2px solid #fff;
       border-radius: 5px;
     }
-
     /* Control Bar */
     .control-bar {
       position: fixed;
@@ -70,7 +69,6 @@
       align-items: center;
       z-index: 2;
     }
-
     /* Buttons */
     button {
       padding: 10px;
@@ -91,7 +89,6 @@
     button:hover {
       background-color: #444;
     }
-
     /* Mobile Adjustments */
     @media (max-width: 600px) {
       h1 {
@@ -125,7 +122,6 @@
     <button id="capture">Capture</button>
     <button id="play">Play</button>
   </div>
-
   <canvas id="canvas" style="display: none;"></canvas>
   
   <script>
@@ -135,7 +131,6 @@
     const playBtn = document.getElementById('play');
     const canvas = document.getElementById('canvas');
     const frames = [];
-
     navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
       .then(stream => {
         video.srcObject = stream;
@@ -144,7 +139,6 @@
         console.error('Error accessing camera:', err);
         alert('Error accessing the camera. Please grant permissions.');
       });
-
     captureBtn.addEventListener('click', () => {
       const context = canvas.getContext('2d');
       canvas.width = video.videoWidth;
@@ -152,29 +146,24 @@
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
       const frameData = canvas.toDataURL('image/jpeg', 0.5);
       frames.push(frameData);
-
       const img = document.createElement('img');
       img.src = frameData;
       img.className = 'frame';
       frameContainer.appendChild(img);
       console.log("Frame captured:", frameData);
     });
-
     playBtn.addEventListener('click', () => {
       if (frames.length === 0) {
         alert('No frames captured!');
         return;
       }
-
       try {
         localStorage.setItem('stopMotionFrames', JSON.stringify(frames));
         console.log("Frames saved to localStorage:", frames);
-
         if (localStorage.getItem('stopMotionFrames') === null) {
           alert('Error: Frames were not saved. Please try again.');
           return;
         }
-
         window.location.href = 'j.html?nocache=' + new Date().getTime();
       } catch (error) {
         console.error('Error storing frames:', error);
